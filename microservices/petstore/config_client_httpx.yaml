@@ -1,0 +1,4 @@
+packageVersion: 1.0.6
+modelsPackage: common_models
+modelsPackageInstallationName: common-models
+modelsPackageVersion: 1.0.9
