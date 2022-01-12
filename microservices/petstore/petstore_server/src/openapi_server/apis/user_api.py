@@ -17,7 +17,7 @@ from fastapi import (  # noqa: F401
 )
 
 from openapi_server.models.extra_models import TokenModel  # noqa: F401
-from common_models.models.user import User
+from common_models.models import User
 
 
 router = APIRouter()

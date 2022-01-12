@@ -3,7 +3,7 @@
 from fastapi.testclient import TestClient
 
 
-from common_models.models.order import Order  # noqa: F401
+from common_models.models import Order  # noqa: F401
 
 
 def test_delete_order(client: TestClient):

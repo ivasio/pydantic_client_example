@@ -3,7 +3,7 @@
 from fastapi.testclient import TestClient
 
 
-from common_models.models.user import User  # noqa: F401
+from common_models.models import User  # noqa: F401
 
 
 def test_create_user(client: TestClient):

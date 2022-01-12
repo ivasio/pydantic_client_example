@@ -17,7 +17,7 @@ from fastapi import (  # noqa: F401
 )
 
 from openapi_server.models.extra_models import TokenModel  # noqa: F401
-from common_models.models.order import Order
+from common_models.models import Order
 from openapi_server.security_api import get_token_api_key
 
 router = APIRouter()

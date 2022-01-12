@@ -4,7 +4,7 @@ from fastapi.testclient import TestClient
 
 
 from openapi_server.models.api_response import ApiResponse  # noqa: F401
-from common_models.models.pet import Pet  # noqa: F401
+from common_models.models import Pet  # noqa: F401
 
 
 def test_add_pet(client: TestClient):
