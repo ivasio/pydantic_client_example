@@ -1,0 +1,1 @@
+include petstore_httpx_client/py.typed
