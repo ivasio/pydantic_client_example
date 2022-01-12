@@ -1,0 +1,1 @@
+docker run -v ${PWD}:/local -w /local --user $(id -u):$(id -g) openapitools/openapi-generator-cli generate -g python-fastapi -i ./swagger.json -o ./petstore_server
