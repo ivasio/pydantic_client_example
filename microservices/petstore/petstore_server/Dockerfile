@@ -7,7 +7,10 @@ ENV PATH="/venv/bin:$PATH"
 
 RUN pip install --upgrade pip
 
-COPY . .
+COPY common common
+RUN pip install ./common
+
+COPY microservices/petstore/petstore_server .
 RUN pip install --no-cache-dir .
 
 
@@ -26,5 +29,5 @@ RUN pytest tests
 
 FROM python:3.7 AS service
 WORKDIR /root/app/site-packages
-COPY --from=test_runner /venv /venv
+COPY --from=builder /venv /venv
 ENV PATH=/venv/bin:$PATH
