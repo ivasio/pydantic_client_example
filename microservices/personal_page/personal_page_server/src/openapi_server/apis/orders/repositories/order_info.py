@@ -9,3 +9,6 @@ class OrderInfoRepository:
 
     def get_all(self) -> List[OrderInfo]:
         return self._store
+
+    def add(self, item: OrderInfo) -> None:
+        self._store.append(item)
