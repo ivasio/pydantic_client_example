@@ -1,12 +1,22 @@
 version: '3.6'
 services:
-  petstore:
+
+  petstore_server:
     build:
       context: .
       dockerfile: microservices/petstore/petstore_server/Dockerfile
       target: service
+    command: uvicorn openapi_server.main:app --host 0.0.0.0 --port 8080
+
+  personal_page_server:
+    build:
+      context: .
+      dockerfile: microservices/personal_page/personal_page_server/Dockerfile
+      target: service
     ports:
       - "8080:8080"
-    command: uvicorn openapi_server.main:app --host 0.0.0.0 --port 8080
+    command: uvicorn openapi_server:app --host 0.0.0.0 --port 8080
+    environment:
+      PETSTORE_SERVER_HOST: petstore_server      PETSTORE_SERVER_PORT: 8080
 
 # pip install -e microservices/petstore/client-python-httpx/petstore_httpx_client
