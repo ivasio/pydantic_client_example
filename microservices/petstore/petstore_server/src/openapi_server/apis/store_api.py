@@ -1,5 +1,6 @@
 # coding: utf-8
-
+from datetime import datetime, timedelta
+from random import randint
 from typing import Dict, List  # noqa: F401
 
 from fastapi import (  # noqa: F401
@@ -83,6 +84,13 @@ async def get_order_by_id(
     summary="Place an order for a pet",
 )
 async def place_order(
-    body: Order = Body(None, description="order placed for purchasing the pet"),
+    request: Order = Body(None, description="order placed for purchasing the pet"),
 ) -> Order:
-    ...
+    return Order(
+        id=request.id,
+        pet_id=request.pet_id,
+        quantity=1,
+        ship_date=datetime.utcnow() + timedelta(days=randint(5, 10)),
+        status='shipping',
+        complete=False
+    )

@@ -1,3 +1,4 @@
+import logging
 from collections import Counter
 
 from ..entities.orders_history import OrdersHistory
@@ -7,9 +8,18 @@ from ..repositories.order_info import OrderInfoRepository
 class GetAllOrdersUseCase:
     def __init__(self, order_infos: OrderInfoRepository):
         self.order_infos = order_infos
+        self.logger = logging.getLogger(__name__)
 
     def __call__(self) -> OrdersHistory:
         order_infos = self.order_infos.get_all()
+        self.logger.info(f'Fetched {len(order_infos)} order infos')
+        if len(order_infos) == 0:
+            return OrdersHistory(
+                orders=[],
+                favourite_pet_category='',
+                total_spent=0
+            )
+
         order_infos_sorted = sorted(order_infos, key=lambda order_info: order_info.order.ship_date)
 
         categories_counter = Counter()

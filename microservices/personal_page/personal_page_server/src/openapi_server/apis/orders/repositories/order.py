@@ -8,4 +8,4 @@ class OrderRepository:
         self.petstore_client = petstore_client
 
     async def add(self, order: Order) -> Order:
-        return self.petstore_client.store_api.place_order(order)
+        return await self.petstore_client.store_api.place_order(order)
