@@ -2,8 +2,9 @@
 from asyncio import get_event_loop
 from typing import TYPE_CHECKING, Awaitable, Dict
 
-from common_models import models as m
 from fastapi.encoders import jsonable_encoder
+
+from petstore_httpx_client import models as m
 
 if TYPE_CHECKING:
     from petstore_httpx_client.api_client import ApiClient
