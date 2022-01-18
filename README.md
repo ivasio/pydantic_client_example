@@ -1,4 +1,4 @@
-#Pydantic client example
+# Pydantic client example
 
 Example of microservices application that uses generated client library 
 for interservice communication. Client library employs **pydantic**-based DTO classes 
@@ -18,7 +18,7 @@ following "optimistic" assumption: given an OpenAPI model with a certain name, i
 with the **same name** is present in DTOs module, it is used by the client library. 
 Otherwise, new class is generated. 
 
-##Project contents
+## Project contents
 
 Client code generation util is located in 
 https://github.com/ivasio/fastapi_client/tree/develop . Illustration presented in 
